@@ -2,6 +2,7 @@ import React from "react";
 import { LineStyle, Timeline, TrendingUp } from "@material-ui/icons";
 
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Menu = styled.div`
   margin-bottom: 10px;
@@ -31,12 +32,14 @@ const Dashboard = () => {
     <Menu>
       <Title>Dashboard</Title>
       <List>
-        <Item>
-          <LineStyle
-            style={{ marginRight: "5px", fontSize: "20px !important" }}
-          />
-          Home
-        </Item>
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+          <Item>
+            <LineStyle
+              style={{ marginRight: "5px", fontSize: "20px !important" }}
+            />
+            Home
+          </Item>
+        </Link>
         <Item>
           <Timeline
             style={{ marginRight: "5px", fontSize: "20px !important" }}

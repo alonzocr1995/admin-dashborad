@@ -1,15 +1,17 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import UserInfo from "./UserInfo";
-import UserUpdate from "./UserUpdate";
+import ProductBottom from "./ProductBottom";
+import ProductTop from "./ProductTop";
 
 const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
+
 const Title = styled.h1``;
+
 const Button = styled.button`
   width: 80px;
   border: none;
@@ -20,26 +22,20 @@ const Button = styled.button`
   color: white;
   font-size: 16px;
 `;
-const UserContainer = styled.div`
-  display: flex;
-  margin-top: 20px;
-`;
 
-const User = () => {
+const Product = () => {
   return (
     <Fragment>
       <Container>
-        <Title>Edit User</Title>
-        <Link to="/newUser">
-          <Button>Create User</Button>
+        <Title>Product</Title>
+        <Link to="/newProduct">
+          <Button>Create Product</Button>
         </Link>
       </Container>
-      <UserContainer>
-        <UserInfo />
-        <UserUpdate />
-      </UserContainer>
+      <ProductTop />
+      <ProductBottom />
     </Fragment>
   );
 };
 
-export default User;
+export default Product;

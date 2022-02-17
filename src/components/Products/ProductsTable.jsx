@@ -1,15 +1,16 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { DataGrid } from "@material-ui/data-grid";
-import styled from "styled-components";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
+import { productRows } from "../../dummyData";
+import styled from "styled-components";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const UserContainer = styled.div`
+const ProductContainer = styled.div`
   display: flex;
   align-items: center;
 `;
-const UserImg = styled.img`
+const Img = styled.img`
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -27,29 +28,29 @@ const EditButton = styled.button`
   cursor: pointer;
 `;
 
-const UsersTable = () => {
-  const [data, setData] = useState(userRows);
+const ProductsTable = () => {
+  const [data, setData] = useState(productRows);
 
   const handleUserDelete = (id) => {
-    setData((prev) => prev.filter((user) => user.id !== id));
+    setData((prev) => prev.filter((product) => product.id !== id));
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 100 },
+    { field: "id", headerName: "ID", width: 90 },
     {
-      field: "user",
-      headerName: "User",
+      field: "product",
+      headerName: "Product",
       width: 200,
       renderCell: (params) => {
         return (
-          <UserContainer>
-            <UserImg src={params.row.avatar} alt="" />
-            <span>{params.row.username}</span>
-          </UserContainer>
+          <ProductContainer>
+            <Img src={params.row.img} alt="" />
+            <span>{params.row.name}</span>
+          </ProductContainer>
         );
       },
     },
-    { field: "email", headerName: "E-Mail", width: 200 },
+    { field: "stock", headerName: "Stock", width: 200 },
     {
       field: "status",
       headerName: "Status",
@@ -57,8 +58,8 @@ const UsersTable = () => {
       width: 120,
     },
     {
-      field: "transaction",
-      headerName: "Transaction",
+      field: "price",
+      headerName: "Price",
       width: 160,
     },
     {
@@ -67,7 +68,7 @@ const UsersTable = () => {
       width: 150,
       renderCell: (params) => (
         <Fragment>
-          <Link to={`/user/${params.row.id}`}>
+          <Link to={`/product/${params.row.id}`}>
             <EditButton>Edit</EditButton>
           </Link>
           <DeleteOutline
@@ -91,4 +92,4 @@ const UsersTable = () => {
   );
 };
 
-export default UsersTable;
+export default ProductsTable;

@@ -7,6 +7,7 @@ import {
 } from "@material-ui/icons";
 
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Menu = styled.div`
   margin-bottom: 10px;
@@ -36,18 +37,25 @@ const QuickMenu = () => {
     <Menu>
       <Title>Quick Menu</Title>
       <List>
-        <Item>
-          <PermIdentity
-            style={{ marginRight: "5px", fontSize: "20px !important" }}
-          />
-          Users
-        </Item>
-        <Item>
-          <Storefront
-            style={{ marginRight: "5px", fontSize: "20px !important" }}
-          />
-          Products
-        </Item>
+        <Link to="/users" style={{ textDecoration: "none", color: "inherit" }}>
+          <Item>
+            <PermIdentity
+              style={{ marginRight: "5px", fontSize: "20px !important" }}
+            />
+            Users
+          </Item>
+        </Link>
+        <Link
+          to="products"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <Item>
+            <Storefront
+              style={{ marginRight: "5px", fontSize: "20px !important" }}
+            />
+            Products
+          </Item>
+        </Link>
         <Item>
           <AttachMoney
             style={{ marginRight: "5px", fontSize: "20px !important" }}
